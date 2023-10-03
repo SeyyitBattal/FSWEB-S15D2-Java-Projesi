@@ -43,16 +43,23 @@ public class TaskData {
         return union;
     }
 
-    public Set<Task> getIntersect(Set<Task> set1, Set <Task> set2){
+    public Set<Task> getIntersect(Set<Task> set1, Set<Task> set2) {
         Set<Task> intertect = new HashSet<>(set1);
         intertect.retainAll(set2);
         return intertect;
     }
 
-    public Set<Task> getDifference(Set <Task> set1, Set <Task> set2){
-        Set <Task> difference = new HashSet<>(set1);
+    public Set<Task> getDifference(Set<Task> set1, Set<Task> set2) {
+        Set<Task> difference = new HashSet<>(set1);
         difference.removeAll(set2);
         return difference;
+    }
+
+    public void addTask(String assignee, Task task) {
+        if (assignee != null) {
+            task.getAssignee().add(assignee);
+        }
+        tasks.add(task);
     }
 
 
